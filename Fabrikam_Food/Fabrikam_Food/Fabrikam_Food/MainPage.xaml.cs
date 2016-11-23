@@ -9,16 +9,30 @@ namespace Fabrikam_Food
 {
     public partial class MainPage : ContentPage
     {
+        // Track whether the user has authenticated.
+        bool authenticated = false;
+
         public MainPage()
         {
             InitializeComponent();
         }
-        async void OnButtonClicked(object sender, EventArgs args)
+        protected override async void OnAppearing()
         {
-            Button button = (Button)sender;
-            await DisplayAlert("Clicked!",
-                "The button labeled '" + button.Text + "' has been clicked",
-                "OK");
+            base.OnAppearing();
+
+            if (authenticated == true)
+            {
+                // Hide the Sign-in button.
+                this.loginButton.IsVisible = false;
+            }
+        }
+        async void loginButton_Clicked(object sender, EventArgs e)
+        {
+            if (App.Authenticator != null)
+                authenticated = await App.Authenticator.Authenticate();
+
+            if (authenticated == true)
+                this.loginButton.IsVisible = false;
         }
     }
 }

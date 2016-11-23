@@ -8,8 +8,10 @@
     <StackLayout Spacing="0" x:Name="layout">
       <Label Text="Fabrikam Food" VerticalOptions="StartAndExpand" FontSize="80"
         HorizontalOptions="Center" />
-      <Button HeightRequest="75" Text="FB Dummy Login" VerticalOptions="Fill" Clicked="OnButtonClicked"
-        HorizontalOptions="FillAndExpand" />
+      <!--<Button HeightRequest="75" Text="FB Dummy Login" VerticalOptions="Fill" Clicked="OnButtonClicked"
+        HorizontalOptions="FillAndExpand" />-->
+      <Button x:Name="loginButton" Text="Sign-in" MinimumHeightRequest="30"
+        Clicked="loginButton_Clicked"/>
       <BoxView VerticalOptions="EndAndExpand"
         HorizontalOptions="FillAndExpand" />
     </StackLayout>
