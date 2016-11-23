@@ -2,10 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Fabrikam_Food"
-             x:Class="Fabrikam_Food.MainPage">
-
-  <Label Text="Welcome to Xamarin Forms!"
-           VerticalOptions="Center"
-           HorizontalOptions="Center" />
-
+             x:Class="Fabrikam_Food.MainPage"
+             Title="Fabrikam Food">
+  <ContentPage.Content>
+    <StackLayout Spacing="0" x:Name="layout">
+      <Label Text="Fabrikam Food" VerticalOptions="StartAndExpand" FontSize="80"
+        HorizontalOptions="Center" />
+      <Button HeightRequest="75" Text="FB Dummy Login" VerticalOptions="Fill" Clicked="OnButtonClicked"
+        HorizontalOptions="FillAndExpand" />
+      <BoxView VerticalOptions="EndAndExpand"
+        HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+  </ContentPage.Content>
 </ContentPage>
