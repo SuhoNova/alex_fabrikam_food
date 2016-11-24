@@ -55,6 +55,7 @@ namespace Fabrikam_Food.Views
         }
         public async void FindDistanceAndTime(Object sender, EventArgs e)
         {
+            CalculateDistance.IsRunning = true;
             // mode default is driving, if i want to change it then after fablocation "&mode=bicycling"
             try
             {
@@ -75,6 +76,7 @@ namespace Fabrikam_Food.Views
 
                 var jsonString = response.Content.ReadAsStringAsync().Result;
                 List<DataModels.json.Element> data = getData(jsonString);
+                CalculateDistance.IsRunning = false;
                 distance.Text = "You have to travel " + data[0].distance.text + " to get to Fabrikam Food";
                 time.Text = "It is estimated to take " + data[0].duration.text + " by car";
             }
@@ -82,6 +84,7 @@ namespace Fabrikam_Food.Views
             {
                 await DisplayAlert("Failed getting distance and duration", ex.Message, "OK");
             }
+            CalculateDistance.IsRunning = false;
         }
         public List<DataModels.json.Element> getData(string jsonString)
         {

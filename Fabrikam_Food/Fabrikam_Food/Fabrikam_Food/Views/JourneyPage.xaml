@@ -1,17 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Fabrikam_Food.Views.JourneyPage">
+             x:Class="Fabrikam_Food.Views.JourneyPage"
+             Title="Fabrikam Food">
   <ContentPage.Content>
     <StackLayout BackgroundColor="White">
       <Button Text="Back" TextColor="White" BackgroundColor="Red" Command="{Binding GoHomeCommand}" />
-      <Label x:Name="fabrikamLocation" />
-      <Label x:Name="currentLocation" />
+      <Label x:Name="fabrikamLocation" FontSize="16" FontAttributes="Bold"/>
+      <Label x:Name="currentLocation" FontSize="16" FontAttributes="Bold"/>
       <ActivityIndicator x:Name="LocationFinding" Color="Red" IsRunning="false" />
       <Button Text="Find Distance" TextColor="White" BackgroundColor="Black" Clicked="FindDistanceAndTime" />
       <ActivityIndicator x:Name="CalculateDistance" Color="Red" IsRunning="false" />
-      <Label x:Name="distance" />
-      <Label x:Name="time" />
+      <Label x:Name="distance" FontSize="16" FontAttributes="Bold"/>
+      <Label x:Name="time" FontSize="16" FontAttributes="Bold"/>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

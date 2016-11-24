@@ -31,6 +31,7 @@ namespace Fabrikam_Food.Views
 
         private async void OrderIt(Object sender, EventArgs e)
         {
+            OrderingIndicator.IsRunning = true;
             try
             {
                 // SEND TO EASY TABLE
@@ -43,6 +44,7 @@ namespace Fabrikam_Food.Views
                 };
 
                 await AzureManager.AzureManagerInstance.AddFoodOrder(food);
+                OrderingIndicator.IsRunning = false;
                 await DisplayAlert(_name + " Successfully Ordered", "The food will be prepared as soon as possible", "Ok");
                 App.RootPage.Detail = new NavigationPage(new OrderPage());
                 App.MenuIsPresented = false;
@@ -50,8 +52,10 @@ namespace Fabrikam_Food.Views
             catch(Exception ex)
             {
                 errorLabel.Text = ex.Message;
+                OrderingIndicator.IsRunning = false;
                 await DisplayAlert("Order Failed", "If it doesn't work again, please contact us by phone", "Ok");
             }
+            
         }
 
     }

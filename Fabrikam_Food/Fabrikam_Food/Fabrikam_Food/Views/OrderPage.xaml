@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Fabrikam_Food.Views.OrderPage">
+             x:Class="Fabrikam_Food.Views.OrderPage"
+             Title="Fabrikam Food">
   <ContentPage.Content>
     <StackLayout BackgroundColor="White">
-      <Button Text="Home" TextColor="White" BackgroundColor="Red" Command="{Binding GoHomeCommand}" />
+      <Button Text="Back" TextColor="White" BackgroundColor="Red" Command="{Binding GoHomeCommand}" />
       <ListView x:Name="FoodList" HasUnevenRows="True">
         <ListView.Header>
           <Grid >
@@ -12,8 +13,8 @@
               <RowDefinition Height="50" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="20*" />
-              <ColumnDefinition Width="80*"/>
+              <ColumnDefinition Width="30*" />
+              <ColumnDefinition Width="70*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Grid.Row="0" Text="Dollars($)" FontSize="16" FontAttributes="Bold"/>
             <Label Grid.Column="1" Grid.Row="0" Text="Name" FontSize="16" FontAttributes="Bold"/>
@@ -27,8 +28,8 @@
                   <RowDefinition Height="50" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="20*" />              
-                  <ColumnDefinition Width="80*" />
+                  <ColumnDefinition Width="30*" />              
+                  <ColumnDefinition Width="70*" />
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Text="{Binding price}" FontSize="16" FontAttributes="Bold"/>
                 <Label Grid.Column="1" Text="{Binding name}" FontSize="16" FontAttributes="Bold"/>

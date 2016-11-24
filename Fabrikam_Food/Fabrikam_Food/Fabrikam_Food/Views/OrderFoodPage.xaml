@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Fabrikam_Food.Views.OrderFoodPage">
+             x:Class="Fabrikam_Food.Views.OrderFoodPage"
+             Title="Fabrikam Food">
   <ContentPage.Content>
     <StackLayout Spacing="0" x:Name="layout">
       <Label Text="Fabrikam Food" VerticalOptions="Start" FontSize="40"
@@ -10,6 +11,7 @@
       <Label Text="{Binding _price, StringFormat='Price: ${0:N}'}" FontSize="30" FontAttributes="Bold"/>
       <Label Text="{Binding _name, StringFormat='Name: {0:F0}'}" FontSize="30" FontAttributes="Bold"/>
       <Label x:Name="errorLabel" />
+      <ActivityIndicator x:Name="OrderingIndicator" Color="Red" IsRunning="false" />
       <Button Text="Order" TextColor="White" BackgroundColor="Green" VerticalOptions="End" Clicked="OrderIt" />
     </StackLayout>
   </ContentPage.Content>
