@@ -39,8 +39,13 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="AzureManager.cs" />
+    <Compile Include="DataModels\json\Distance.cs" />
+    <Compile Include="DataModels\json\Duration.cs" />
     <Compile Include="DataModels\Food.cs" />
     <Compile Include="DataModels\FoodDetail.cs" />
+    <Compile Include="DataModels\json\Element.cs" />
+    <Compile Include="DataModels\json\RootObject.cs" />
+    <Compile Include="DataModels\json\Row.cs" />
     <Compile Include="Resources\values\Info.cs" />
     <Compile Include="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>

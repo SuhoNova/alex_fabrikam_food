@@ -12,6 +12,11 @@ using Plugin.Geolocator;
 using Fabrikam_Food.Resources.values;
 using JavaScriptCore;
 using System.Net;
+using System.Net.Http;
+using Newtonsoft.Json;
+using Org.Json;
+using Fabrikam_Food.DataModels.json;
+
 
 namespace Fabrikam_Food.Views
 {
@@ -50,39 +55,38 @@ namespace Fabrikam_Food.Views
         }
         public async void FindDistanceAndTime(Object sender, EventArgs e)
         {
-           // mode default is driving, if i want to change it then after fablocation "&mode=bicycling"
-            string url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" +
-                     _currentLocation +
-                     "&destinations=" +
-                     _fabLocation +
-                     "&key=" +
-                     _key;
-            //JSValue json = await FetchDistanceAndTime(url);
-
-        }
-        /*
-        private async Task<JSValue> FetchDistanceAndTime(string url)
-        {
-            // Create an HTTP web request using the URL:
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
-            request.ContentType = "application/json";
-            request.Method = "GET";
-
-            // Send the request to the server and wait for the response:
-            using (WebResponse response = await request.GetResponseAsync())
+            // mode default is driving, if i want to change it then after fablocation "&mode=bicycling"
+            try
             {
-                // Get a stream representation of the HTTP web response:
-                using (Stream stream = response.GetResponseStream())
-                {
-                    // Use this stream to build a JSON document object:
-                    JsonValue jsonDoc = await Task.Run(() => JsonObject.Load(stream));
-                    Console.Out.WriteLine("Response: {0}", jsonDoc.ToString());
+                string url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" +
+                         _currentLocation +
+                         "&destinations=" +
+                         _fabLocation +
+                         "&key=" +
+                         _key;
+                var client = new HttpClient();
+                client.BaseAddress = new Uri("https://maps.googleapis.com/maps/api/");
+                var response = client.GetAsync("distancematrix/json?origins=" +
+                        _currentLocation +
+                         "&destinations=" +
+                         _fabLocation +
+                         "&key=" +
+                         _key).Result;
 
-                    // Return the JSON document:
-                    return jsonDoc;
-                }
+                var jsonString = response.Content.ReadAsStringAsync().Result;
+                List<DataModels.json.Element> data = getData(jsonString);
+                distance.Text = "You have to travel " + data[0].distance.text + " to get to Fabrikam Food";
+                time.Text = "It is estimated to take " + data[0].duration.text + " by car";
             }
-        }*/
-
+            catch (Exception ex)
+            {
+                await DisplayAlert("Failed getting distance and duration", ex.Message, "OK");
+            }
+        }
+        public List<DataModels.json.Element> getData(string jsonString)
+        {
+            var json = JsonConvert.DeserializeObject<RootObject>(jsonString);
+            return json.rows[0].elements;
+        }
     }
 }
