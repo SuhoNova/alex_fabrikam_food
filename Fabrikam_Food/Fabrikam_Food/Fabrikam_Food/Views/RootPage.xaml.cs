@@ -8,12 +8,12 @@ using Xamarin.Forms;
 
 namespace Fabrikam_Food.Views
 {
-    public partial class HomePage : ContentPage
+    public partial class RootPage : MasterDetailPage
     {
-        public HomePage()
+        public RootPage()
         {
-            BindingContext = new Fabrirkam_Food.MenuPageViewModel();
             InitializeComponent();
+            MasterBehavior = MasterBehavior.Popover;
         }
     }
 }

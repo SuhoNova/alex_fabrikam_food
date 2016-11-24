@@ -8,9 +8,9 @@ using Xamarin.Forms;
 
 namespace Fabrikam_Food.Views
 {
-    public partial class HomePage : ContentPage
+    public partial class JourneyPage : ContentPage
     {
-        public HomePage()
+        public JourneyPage()
         {
             BindingContext = new Fabrirkam_Food.MenuPageViewModel();
             InitializeComponent();

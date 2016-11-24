@@ -1,12 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Fabrikam_Food.Views.HomePage">
-  <ContentPage.Content>
-    <StackLayout BackgroundColor="White">
+             x:Class="Fabrikam_Food.Views.MenuPage">
+  <ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness" Android="0, 20, 0, 0" />
+	</ContentPage.Padding>
+	<ContentPage.Content>
+		<StackLayout BackgroundColor="White">
+			<Button Text="Home" TextColor="White" BackgroundColor="Green" Command="{Binding GoHomeCommand}" />
       <Button Text="Journey" TextColor="White" BackgroundColor="Green" Command="{Binding GoJourneyCommand}" />
       <Button Text="Suggest" TextColor="White" BackgroundColor="Green" Command="{Binding GoSuggestCommand}" />
       <Button Text="Order" TextColor="White" BackgroundColor="Green" Command="{Binding GoOrderCommand}" />
-    </StackLayout>
-  </ContentPage.Content>
+		</StackLayout>
+	</ContentPage.Content>
 </ContentPage>

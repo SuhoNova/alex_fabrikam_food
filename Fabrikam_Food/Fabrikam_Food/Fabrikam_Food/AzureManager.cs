@@ -13,12 +13,12 @@ namespace Fabrikam_Food
 
         private static AzureManager instance;
         private MobileServiceClient client;
-        private IMobileServiceTable<food> foodTable;
+        private IMobileServiceTable<Food> foodTable;
 
         private AzureManager()
         {
-            this.client = new MobileServiceClient("http://alexfabrikamfood.azurewebsites.net");
-            this.foodTable = this.client.GetTable<food>();
+            this.client = new MobileServiceClient("https://alexfabrikamfood.azurewebsites.net");
+            this.foodTable = this.client.GetTable<Food>();
         }
 
         public MobileServiceClient AzureClient
@@ -39,12 +39,12 @@ namespace Fabrikam_Food
             }
         }
 
-        public async Task AddTimeline(food fFood)
+        public async Task AddFoodOrder(Food fFood)
         {
             await this.foodTable.InsertAsync(fFood);
         }
 
-        public async Task<List<food>> GetTimelines()
+        public async Task<List<Food>> GetFoodOrder()
         {
             return await this.foodTable.ToListAsync();
         }

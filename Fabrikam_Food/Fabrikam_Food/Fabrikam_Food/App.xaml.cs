@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fabrikam_Food.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,6 @@ namespace Fabrikam_Food
                 RootPage.IsPresented = value;
             }
         }
-
         public interface IAuthenticate
         {
             Task<bool> Authenticate();
@@ -38,12 +38,10 @@ namespace Fabrikam_Food
 
         public App()
         {
-
-            //InitializeComponent();
-
-            //MainPage = new Fabrikam_Food.MainPage();
-            var menuPage = new MenuPage();
-            NavigationPage = new NavigationPage(new HomePage());
+            // if not authenticated
+            var menuPage = new ContentPage();
+            menuPage.Title = "Login Page";
+            NavigationPage = new NavigationPage(new LoginPage());
             RootPage = new RootPage();
             RootPage.Master = menuPage;
             RootPage.Detail = NavigationPage;

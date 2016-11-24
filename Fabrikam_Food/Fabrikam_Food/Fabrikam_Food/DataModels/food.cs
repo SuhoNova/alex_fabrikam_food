@@ -7,42 +7,25 @@ using Newtonsoft.Json;
 
 namespace Fabrikam_Food.DataModels
 {
-    public class food
+    public class Food
     {
-        [JsonProperty(PropertyName = "Id")]
-        public string ID { get; set; }
+        [Newtonsoft.Json.JsonProperty("Id")]
+        public string Id { get; set; }
 
-        [JsonProperty(PropertyName = "anger")]
-        public double Anger { get; set; }
-
-        [JsonProperty(PropertyName = "contempt")]
-        public double Contempt { get; set; }
-
-        [JsonProperty(PropertyName = "disgust")]
-        public double Disgust { get; set; }
-
-        [JsonProperty(PropertyName = "fear")]
-        public double Fear { get; set; }
-
-        [JsonProperty(PropertyName = "happiness")]
-        public double Happiness { get; set; }
-
-        [JsonProperty(PropertyName = "neutral")]
-        public double Neutral { get; set; }
-
-        [JsonProperty(PropertyName = "sadness")]
-        public double Sadness { get; set; }
-
-        [JsonProperty(PropertyName = "surprise")]
-        public double Surprise { get; set; }
+        [Microsoft.WindowsAzure.MobileServices.Version]
+        public string AzureVersion { get; set; }
 
         [JsonProperty(PropertyName = "createdAt")]
         public DateTime Date { get; set; }
 
-        [JsonProperty(PropertyName = "lat")]
-        public double Lat { get; set; }
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
 
-        [JsonProperty(PropertyName = "lon")]
-        public double Lon { get; set; }
+        [JsonProperty(PropertyName = "price")]
+        public double Price { get; set; }
+
+        [JsonProperty(PropertyName = "quantity")]
+        public int Quantity { get; set; }
+
     }
 }
