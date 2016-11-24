@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <string name="Hello">Hello World, Click Me!</string>
+  <string name="ApplicationName">Fabrikam_Food</string>
+  <string name="google_maps_key">AIzaSyDqCyr5qgvtt1EqcCehEPMoQm08c35JcPw</string>
+  <string name="google_matrix_key">AIzaSyBIyy9lkZK4azYFHMDpimjMfrUmrtpIuHw</string>
+</resources>

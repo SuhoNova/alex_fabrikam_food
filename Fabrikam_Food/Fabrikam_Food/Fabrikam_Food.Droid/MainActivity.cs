@@ -9,12 +9,16 @@ using Android.OS;
 using Microsoft.WindowsAzure.MobileServices;
 using System.Threading.Tasks;
 using static Fabrikam_Food.App;
+using Android.Gms.Maps;
 
 namespace Fabrikam_Food.Droid
 {
     [Activity(Label = "Fabrikam_Food", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity//, IOnMapReadyCallback
     {
+        
+        //private GoogleMap mMap;
+
         protected override void OnCreate(Bundle bundle)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -25,6 +29,18 @@ namespace Fabrikam_Food.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
         }
+        /*
+        private void SetUpMap()
+        {
+            if (mMap == null)
+            {
+                FragmentManager.FindFragmentById<MapFragment>(Resource.Id.map).GetMapAsync(this);
+            }
+        }
+        public void OnMapReady(GoogleMap googleMap)
+        {
+            mMap = googleMap;
+        }*/
     }
 }
 

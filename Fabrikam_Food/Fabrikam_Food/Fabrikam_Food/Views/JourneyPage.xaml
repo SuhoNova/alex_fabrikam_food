@@ -4,7 +4,14 @@
              x:Class="Fabrikam_Food.Views.JourneyPage">
   <ContentPage.Content>
     <StackLayout BackgroundColor="White">
-      <Button Text="Home" TextColor="White" BackgroundColor="Green" Command="{Binding GoHomeCommand}" />
+      <Button Text="Back" TextColor="White" BackgroundColor="Red" Command="{Binding GoHomeCommand}" />
+      <Label x:Name="fabrikamLocation" />
+      <Label x:Name="currentLocation" />
+      <ActivityIndicator x:Name="LocationFinding" Color="Red" IsRunning="false" />
+      <Button Text="Find Distance" TextColor="White" BackgroundColor="Black" Clicked="FindDistanceAndTime" />
+      <ActivityIndicator x:Name="CalculateDistance" Color="Red" IsRunning="false" />
+      <Label x:Name="distance" />
+      <Label x:Name="time" />
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>
