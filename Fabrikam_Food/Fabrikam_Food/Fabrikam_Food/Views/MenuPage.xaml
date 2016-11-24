@@ -12,6 +12,7 @@
       <Button Text="Journey" TextColor="White" BackgroundColor="Green" Command="{Binding GoJourneyCommand}" />
       <Button Text="Suggest" TextColor="White" BackgroundColor="Green" Command="{Binding GoSuggestCommand}" />
       <Button Text="Order" TextColor="White" BackgroundColor="Green" Command="{Binding GoOrderCommand}" />
+      <Button Text="History" TextColor="White" BackgroundColor="Green" Command="{Binding GoHistoryCommand}" />
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

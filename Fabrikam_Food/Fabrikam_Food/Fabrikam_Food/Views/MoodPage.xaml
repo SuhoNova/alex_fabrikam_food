@@ -5,7 +5,12 @@
              Title="Fabrikam Food">
   <ContentPage.Content>
     <StackLayout BackgroundColor="White">
-      <Button Text="Home" TextColor="White" BackgroundColor="Green" Command="{Binding GoHomeCommand}" />
+      <Button Text="Back" TextColor="White" BackgroundColor="Red" Command="{Binding GoHomeCommand}" />
+      <Button Text="Take Photo!" TextColor="White" BackgroundColor="Green" Clicked="TakePicture_Clicked"/>
+      <Label x:Name="errorLabel" />
+      <Label x:Name="moodLabel" FontSize="25" FontAttributes="Bold" />
+      <Label x:Name="suggestionLabel" FontSize="25" FontAttributes="Bold" />
+      <ActivityIndicator x:Name="UploadingIndicator" Color="Red" IsRunning="false" />
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fabrikam_Food.DataModels
 {
-    class FoodDetail
+    public class FoodDetail
     {
         public string name { get; set; }
         public double price { get; set; }

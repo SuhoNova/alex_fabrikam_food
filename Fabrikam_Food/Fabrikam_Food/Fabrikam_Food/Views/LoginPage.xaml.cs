@@ -41,7 +41,7 @@ namespace Fabrikam_Food
             {
                 this.loginButton.IsVisible = false;
                 this.ProceedButton.IsVisible = true;
-                helloUser.Text = userId;
+                //helloUser.Text = userId;
             }
         }
         async void loginButton_Clicked(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace Fabrikam_Food
                 CrossSettings.Current.AddOrUpdateValue("user", AzureManager.AzureManagerInstance.AzureClient.CurrentUser.UserId);
                 CrossSettings.Current.AddOrUpdateValue("token", AzureManager.AzureManagerInstance.AzureClient.CurrentUser.MobileServiceAuthenticationToken);
 
-                helloUser.Text = CrossSettings.Current.GetValueOrDefault("user", "");
+                //helloUser.Text = CrossSettings.Current.GetValueOrDefault("user", "");
             }
         }
         private void proceedButton_Clicked(object sender, EventArgs e)

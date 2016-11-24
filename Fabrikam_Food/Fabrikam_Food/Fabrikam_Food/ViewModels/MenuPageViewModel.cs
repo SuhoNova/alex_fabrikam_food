@@ -12,6 +12,7 @@ namespace Fabrirkam_Food
         public ICommand GoJourneyCommand { get; set; }
         public ICommand GoSuggestCommand { get; set; }
         public ICommand GoOrderCommand { get; set; }
+        public ICommand GoHistoryCommand { get; set; }
 
         public MenuPageViewModel()
         {
@@ -19,6 +20,7 @@ namespace Fabrirkam_Food
             GoJourneyCommand = new Command(GoJourney);
             GoSuggestCommand = new Command(GoSuggest);
             GoOrderCommand = new Command(GoOrder);
+            GoHistoryCommand = new Command(GoHistory);
         }
 
         void GoHome(object obj)
@@ -39,6 +41,11 @@ namespace Fabrirkam_Food
         void GoOrder(object obj)
         {
             App.RootPage.Detail = new NavigationPage(new OrderPage());
+            App.MenuIsPresented = false;
+        }
+        void GoHistory(object obj)
+        {
+            App.RootPage.Detail = new NavigationPage(new HistoryPage());
             App.MenuIsPresented = false;
         }
     }
