@@ -45,7 +45,7 @@ namespace Fabrikam_Food.Views
             try
             {
                 UploadingIndicator.IsRunning = true;
-                //88f748eefd944a5d8d337a1765414bba not mine
+
                 string emotionKey = "1c36e4946d994473b89f5edea07f11f6";
 
                 EmotionServiceClient emotionClient = new EmotionServiceClient(emotionKey);

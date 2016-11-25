@@ -12,6 +12,9 @@ namespace Fabrikam_Food.DataModels
         [Newtonsoft.Json.JsonProperty("Id")]
         public string Id { get; set; }
 
+        [JsonProperty(PropertyName = "userId")]
+        public string UserId { get; set; }
+
         [Microsoft.WindowsAzure.MobileServices.Version]
         public string AzureVersion { get; set; }
 

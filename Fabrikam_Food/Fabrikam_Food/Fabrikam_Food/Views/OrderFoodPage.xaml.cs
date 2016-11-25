@@ -37,6 +37,7 @@ namespace Fabrikam_Food.Views
                 // SEND TO EASY TABLE
                 Food food = new Food()
                 {
+                    UserId = AzureManager.AzureManagerInstance.AzureClient.CurrentUser.UserId,
                     Name = _name,
                     Price = _price,
                     Quantity = 1,
